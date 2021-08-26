@@ -3,9 +3,8 @@ package com.modern.movieappmvvm
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
-import com.modern.movieappmvvm.ui.RecyclerViewActivity
+import com.modern.movieappmvvm.ui.GitRepoActivity
 
 class MainActivity : AppCompatActivity() {
     lateinit var mainbutton:Button
@@ -15,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         mainbutton=findViewById(R.id.mbutton)
 
         mainbutton.setOnClickListener {
-            val intent=Intent(this@MainActivity,RecyclerViewActivity::class.java)
+            val intent=Intent(this@MainActivity,GitRepoActivity::class.java)
             startActivity(intent)
         }
     }

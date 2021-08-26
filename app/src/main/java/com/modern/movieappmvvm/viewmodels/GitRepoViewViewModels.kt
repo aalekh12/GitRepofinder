@@ -2,16 +2,10 @@ package com.modern.movieappmvvm.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.modern.movieappmvvm.network.retrofit.RetroInstance
-import com.modern.movieappmvvm.network.retrofit.RetroService
 import com.modern.movieappmvvm.repositiry.GitdataRepositiry
 import com.modern.movieappmvvm.ui.RecyclerList
-import com.modern.movieappmvvm.ui.RecyclerviewAdapter
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
-class RecyclerViewViewModels:ViewModel() {
+class GitRepoViewViewModels:ViewModel() {
     lateinit var recyclerlistdata:MutableLiveData<RecyclerList>
 
 

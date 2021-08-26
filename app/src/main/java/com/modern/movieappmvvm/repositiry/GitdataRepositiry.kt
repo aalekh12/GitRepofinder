@@ -1,8 +1,8 @@
 package com.modern.movieappmvvm.repositiry
 
 import androidx.lifecycle.MutableLiveData
-import com.modern.movieappmvvm.network.retrofit.RetroInstance
-import com.modern.movieappmvvm.network.retrofit.RetroService
+import com.modern.movieappmvvm.network.retrofit.GitRepoRetroInstance
+import com.modern.movieappmvvm.network.retrofit.GitRepoRetroService
 import com.modern.movieappmvvm.ui.RecyclerList
 import retrofit2.Call
 import retrofit2.Response
@@ -11,7 +11,7 @@ object GitdataRepositiry {
     var recyclerlistdata=MutableLiveData<RecyclerList>()
 
     fun makeapiCall(input:String):MutableLiveData<RecyclerList>{
-        val retroInstance= RetroInstance.getRetrofitinstance().create(RetroService::class.java)
+        val retroInstance= GitRepoRetroInstance.getRetrofitinstance().create(GitRepoRetroService::class.java)
         val call =retroInstance.getDatafromAPI(input)
         call.enqueue(object :  retrofit2.Callback<RecyclerList>{
 

@@ -3,7 +3,7 @@ package com.modern.movieappmvvm.network.retrofit
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class RetroInstance {
+class GitRepoRetroInstance {
 
     companion object{
         val basdeurl="https://api.github.com/search/"

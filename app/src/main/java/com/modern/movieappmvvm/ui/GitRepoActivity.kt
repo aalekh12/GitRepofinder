@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
-import androidx.core.view.isNotEmpty
-import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -14,10 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager.VERTICAL
 import com.modern.movieappmvvm.R
-import com.modern.movieappmvvm.viewmodels.RecyclerViewViewModels
-class RecyclerViewActivity : AppCompatActivity() {
+import com.modern.movieappmvvm.viewmodels.GitRepoViewViewModels
+class GitRepoActivity : AppCompatActivity() {
     lateinit var recyclerView: RecyclerView
-    lateinit var recyclerviewAdapter: RecyclerviewAdapter
+    lateinit var gitRepoAdapter: GitRepoAdapter
     lateinit var searchbtn: Button
     lateinit var searchtext: TextView
     lateinit var pbar: ProgressBar
@@ -44,9 +42,9 @@ class RecyclerViewActivity : AppCompatActivity() {
     private fun initrecyclerview() {
         recyclerView.apply {
             pbar.visibility=View.VISIBLE
-            layoutManager = LinearLayoutManager(this@RecyclerViewActivity)
-            recyclerviewAdapter = RecyclerviewAdapter()
-            adapter = recyclerviewAdapter
+            layoutManager = LinearLayoutManager(this@GitRepoActivity)
+            gitRepoAdapter = GitRepoAdapter()
+            adapter = gitRepoAdapter
 
 
             val divider = DividerItemDecoration(applicationContext, VERTICAL)
@@ -60,17 +58,17 @@ class RecyclerViewActivity : AppCompatActivity() {
     fun createdata() {
 
 
-        val viewmodal = ViewModelProviders.of(this).get(RecyclerViewViewModels::class.java)
+        val viewmodal = ViewModelProviders.of(this).get(GitRepoViewViewModels::class.java)
             viewmodal.getRecyclerviewObserver(searchtext.text.toString())
                 .observe(this, Observer<RecyclerList> {
                     if (it != null) {
-                        recyclerviewAdapter.setListData(it.items)
-                        recyclerviewAdapter.notifyDataSetChanged()
+                        gitRepoAdapter.setListData(it.items)
+                        gitRepoAdapter.notifyDataSetChanged()
                         pbar.visibility = View.GONE
                         PbTitlee.visibility = View.GONE
                       } else {
                         pbar.visibility = View.GONE
-                        Toast.makeText(this@RecyclerViewActivity,
+                        Toast.makeText(this@GitRepoActivity,
                             "Error Occured",
                             Toast.LENGTH_LONG).show()
                         PbTitlee.visibility = View.VISIBLE

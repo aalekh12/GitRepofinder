@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieappMvvM">
         <activity android:name=".MainActivity"></activity>
-            <activity android:name=".ui.RecyclerViewActivity">
+            <activity android:name=".ui.GitRepoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

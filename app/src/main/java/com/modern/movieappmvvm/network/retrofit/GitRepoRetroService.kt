@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 
 
-interface RetroService {
+interface GitRepoRetroService {
 
     @GET("repositories")
     fun getDatafromAPI(@Query("q")query:String):Call<RecyclerList>
