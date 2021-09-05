@@ -1,9 +1,11 @@
-package com.modern.movieappmvvm.ui
+package com.modern.movieappmvvm.Gitapp.ui
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -12,8 +14,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager.VERTICAL
 import com.modern.movieappmvvm.R
-import com.modern.movieappmvvm.viewmodels.GitRepoViewViewModels
+import com.modern.movieappmvvm.Gitapp.viewmodels.GitRepoViewViewModels
 class GitRepoActivity : AppCompatActivity() {
+    private lateinit var viewmodal: GitRepoViewViewModels
+
     lateinit var recyclerView: RecyclerView
     lateinit var gitRepoAdapter: GitRepoAdapter
     lateinit var searchbtn: Button
@@ -21,10 +25,10 @@ class GitRepoActivity : AppCompatActivity() {
     lateinit var pbar: ProgressBar
     lateinit var PbTitlee: TextView
     lateinit var labelo: TextView
-    var callback1 : (() -> Unit)? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_recycler_view)
+        setContentView(R.layout.activity_gitrepo_view)
+        viewmodal = ViewModelProviders.of(this).get(GitRepoViewViewModels::class.java)
         recyclerView = findViewById(R.id.recycler_view)
         searchbtn = findViewById(R.id.searchbtn)
         searchtext = findViewById(R.id.searchbox)
@@ -32,16 +36,13 @@ class GitRepoActivity : AppCompatActivity() {
         pbar = findViewById(R.id.loader)
         PbTitlee = findViewById(R.id.loadtitle)
         initrecyclerview()
-        if (searchtext.text.isNotEmpty()) {
-            createdata()
-        }
+        createdata()
         searchfeature()
 
     }
 
     private fun initrecyclerview() {
         recyclerView.apply {
-            pbar.visibility=View.VISIBLE
             layoutManager = LinearLayoutManager(this@GitRepoActivity)
             gitRepoAdapter = GitRepoAdapter()
             adapter = gitRepoAdapter
@@ -50,45 +51,47 @@ class GitRepoActivity : AppCompatActivity() {
             val divider = DividerItemDecoration(applicationContext, VERTICAL)
             addItemDecoration(divider)
         }
-        pbar.visibility=View.GONE
     }
 
 
 
     fun createdata() {
-
-
-        val viewmodal = ViewModelProviders.of(this).get(GitRepoViewViewModels::class.java)
-            viewmodal.getRecyclerviewObserver(searchtext.text.toString())
-                .observe(this, Observer<RecyclerList> {
+        viewmodal.getRecyclerviewObserver("$viewmodal")
+                .observe(this, Observer<GitRepoList> {
                     if (it != null) {
                         gitRepoAdapter.setListData(it.items)
                         gitRepoAdapter.notifyDataSetChanged()
                         pbar.visibility = View.GONE
                         PbTitlee.visibility = View.GONE
-                      } else {
+                        labelo.visibility=View.GONE
+                      }
+                    /*else
+                      {
                         pbar.visibility = View.GONE
                         Toast.makeText(this@GitRepoActivity,
-                            "Error Occured",
+                            "No Internet Connection Found",
                             Toast.LENGTH_LONG).show()
-                        PbTitlee.visibility = View.VISIBLE
-                    }
+                        PbTitlee.visibility = View.GONE
+                    }*/
                 })
 
     }
 
     fun searchfeature(){
         searchbtn.setOnClickListener {
+
             pbar.visibility = View.VISIBLE
-            labelo.visibility = View.GONE
+            labelo.visibility = View.VISIBLE
             if (searchtext?.text.isNotEmpty()) {
+                closekkeyboard(searchtext)
                 PbTitlee.visibility = View.VISIBLE
-                createdata()
+                labelo.visibility = View.GONE
+                viewmodal.getapidata(searchtext.text.toString())
+                pbar.visibility=View.VISIBLE
 
             }
 
             if (searchtext?.text.isNullOrEmpty()) {
-                labelo.visibility = View.VISIBLE
                 Log.i("Not Compiled", "Function not works")
                 findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
                 searchtext.error = "Enter the Repo name"
@@ -96,4 +99,11 @@ class GitRepoActivity : AppCompatActivity() {
 
         }
     }
+
+
+    private fun closekkeyboard(view:View){
+        val imm:InputMethodManager=getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view.windowToken,0)
+    }
+
 }

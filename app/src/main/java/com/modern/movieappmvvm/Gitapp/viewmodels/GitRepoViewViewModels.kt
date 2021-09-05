@@ -1,20 +1,24 @@
-package com.modern.movieappmvvm.viewmodels
+package com.modern.movieappmvvm.Gitapp.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.modern.movieappmvvm.repositiry.GitdataRepositiry
-import com.modern.movieappmvvm.ui.RecyclerList
+import com.modern.movieappmvvm.Gitapp.repositiry.GitdataRepositiry
+import com.modern.movieappmvvm.Gitapp.ui.GitRepoList
 
 class GitRepoViewViewModels:ViewModel() {
-    lateinit var recyclerlistdata:MutableLiveData<RecyclerList>
+    lateinit var recyclerlistdata:MutableLiveData<GitRepoList>
 
 
     init {
         recyclerlistdata=MutableLiveData()
     }
 
+    fun getapidata(bronze:String){
+        recyclerlistdata=GitdataRepositiry.makeapiCall(bronze)
+    }
 
-    fun getRecyclerviewObserver(bronze:String):MutableLiveData<RecyclerList>{
+    fun getRecyclerviewObserver(bronze:String):MutableLiveData<GitRepoList>{
+        if (bronze.isNotEmpty())
         recyclerlistdata=GitdataRepositiry.makeapiCall(bronze)
         return recyclerlistdata
     }

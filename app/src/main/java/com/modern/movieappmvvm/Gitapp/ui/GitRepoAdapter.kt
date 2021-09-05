@@ -1,4 +1,4 @@
-package com.modern.movieappmvvm.ui
+package com.modern.movieappmvvm.Gitapp.ui
 
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -11,15 +11,15 @@ import com.bumptech.glide.Glide
 import com.modern.movieappmvvm.R
 
 class GitRepoAdapter:RecyclerView.Adapter<GitRepoAdapter.MyViewHoloder>() {
-    var items=ArrayList<RecyclerData>()
+    var items=ArrayList<GitRepoData>()
 
 
-    fun setListData(data: ArrayList<RecyclerData>){
+    fun setListData(data: ArrayList<GitRepoData>){
           this.items=data
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHoloder {
-        val inflater=LayoutInflater.from(parent.context).inflate(R.layout.recycler_view_row,parent,false)
+        val inflater=LayoutInflater.from(parent.context).inflate(R.layout.gitrepo_view_row,parent,false)
        return MyViewHoloder(inflater)
     }
 
@@ -31,9 +31,7 @@ class GitRepoAdapter:RecyclerView.Adapter<GitRepoAdapter.MyViewHoloder>() {
         return items.size
     }
 
-    fun clearitems(){
-        this.items.clear()
-    }
+
 
     class MyViewHoloder(view:View):RecyclerView.ViewHolder(view){
 
@@ -41,7 +39,7 @@ class GitRepoAdapter:RecyclerView.Adapter<GitRepoAdapter.MyViewHoloder>() {
         val tvTitle=view.findViewById<TextView>(R.id.tvTitle)
         val tvdescription=view.findViewById<TextView>(R.id.description)
 
-        fun bind(data: RecyclerData){
+        fun bind(data: GitRepoData){
             tvTitle.text=data.name
             if(!TextUtils.isEmpty(data.description)) {
                 tvdescription.text = data.description

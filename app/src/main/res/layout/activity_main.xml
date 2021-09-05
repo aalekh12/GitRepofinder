@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,10 +13,24 @@
         android:layout_width="379dp"
         android:layout_height="256dp"
         android:orientation="vertical"
-        android:text="Click her to Find Repos"
+        android:text="Click here to Find Repos"
         android:textColor="@color/teal_200"
         android:textSize="50dp"
         app:backgroundTint="#E91E63"
-        tools:layout_editor_absoluteX="9dp"
-        tools:layout_editor_absoluteY="203dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <Button
+        android:id="@+id/cbutton"
+        android:layout_width="379dp"
+        android:layout_height="256dp"
+        android:orientation="vertical"
+        android:text="Click here to Species"
+        android:textColor="@color/teal_200"
+        android:textSize="50dp"
+        app:backgroundTint="#E91E63"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="294dp" />
+</LinearLayout>

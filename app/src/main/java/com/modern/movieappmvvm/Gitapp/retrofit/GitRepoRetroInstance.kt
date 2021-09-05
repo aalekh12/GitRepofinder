@@ -1,4 +1,4 @@
-package com.modern.movieappmvvm.network.retrofit
+package com.modern.movieappmvvm.Gitapp.retrofit
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
