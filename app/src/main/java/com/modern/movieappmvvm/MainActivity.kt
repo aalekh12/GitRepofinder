@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
-import com.modern.movieappmvvm.CartoonApp.Cui.CartoonActivity
 import com.modern.movieappmvvm.databinding.ActivityMainBinding
 import com.modern.movieappmvvm.Gitapp.ui.GitRepoActivity
 
@@ -32,12 +31,7 @@ class MainActivity : AppCompatActivity() {
             val intent=Intent(this@MainActivity,GitRepoActivity::class.java)
             startActivity(intent)
         }
-
-        charbutton.setOnClickListener {
-            val intent=Intent(this@MainActivity,CartoonActivity::class.java)
-            startActivity(intent)
-        }
-        internetmoniter()
+         internetmoniter()
 
 
     }
