@@ -1,5 +1,5 @@
 # GitRepofinder
-#This app is Made with MVVM Patteren 
+# This app is Made with MVVM Patteren 
 # Following are use to make this app.
   # -> Recycler View,
   # -> Retrofit Services,
