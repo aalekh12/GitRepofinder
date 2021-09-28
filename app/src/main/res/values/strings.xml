@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GitRepoFinder</string>
+    <string name="click_here_to_find_repos">Click Here to find Repos</string>
 </resources>

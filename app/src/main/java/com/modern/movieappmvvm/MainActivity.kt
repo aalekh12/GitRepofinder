@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         gitbutton=binding.mbutton
-        charbutton=binding.cbutton
 
 
         gitbutton.setOnClickListener {

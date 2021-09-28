@@ -5,32 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical">
-
-
+    android:orientation="vertical"
+    >
     <Button
+        android:orientation="vertical"
         android:id="@+id/mbutton"
-        android:layout_width="379dp"
-        android:layout_height="256dp"
-        android:orientation="vertical"
-        android:text="Click here to Find Repos"
-        android:textColor="@color/teal_200"
+        android:text="@string/click_here_to_find_repos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/button_back"
+        android:padding="10dp"
+        android:textColor="#F44336"
         android:textSize="50dp"
-        app:backgroundTint="#E91E63"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="15dp"
+        tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/cbutton"
-        android:layout_width="379dp"
-        android:layout_height="256dp"
-        android:orientation="vertical"
-        android:text="Click here to Species"
-        android:textColor="@color/teal_200"
-        android:textSize="50dp"
-        app:backgroundTint="#E91E63"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="294dp" />
 </LinearLayout>

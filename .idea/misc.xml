@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/aalek/AndroidStudioProjects/MovieappMvvM/app/src/main/res/drawable/button_back.xml" value="0.13148148148148148" />
+        <entry key="..\:/Users/aalek/AndroidStudioProjects/MovieappMvvM/app/src/main/res/drawable/linearbackground.xml" value="0.13148148148148148" />
         <entry key="..\:/Users/aalek/AndroidStudioProjects/MovieappMvvM/app/src/main/res/layout/activity_cartoon.xml" value="0.1408514492753623" />
+        <entry key="..\:/Users/aalek/AndroidStudioProjects/MovieappMvvM/app/src/main/res/layout/activity_gitrepo_view.xml" value="0.1" />
         <entry key="..\:/Users/aalek/AndroidStudioProjects/MovieappMvvM/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/aalek/AndroidStudioProjects/MovieappMvvM/app/src/main/res/layout/activity_recycler_view.xml" value="0.25" />
         <entry key="..\:/Users/aalek/AndroidStudioProjects/MovieappMvvM/app/src/main/res/layout/cartoon_rowview.xml" value="0.1875" />
