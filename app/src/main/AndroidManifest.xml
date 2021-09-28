@@ -12,9 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieappMvvM">
-        <activity
-            android:name=".CartoonApp.Cui.CartoonActivity"
-            android:exported="true" />
         <activity android:name=".Gitapp.ui.GitRepoActivity"></activity>
         <activity android:name=".MainActivity" >
             <intent-filter>
